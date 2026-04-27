@@ -1,0 +1,20 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: rgb(200, 243, 244);
+}
+.login{
+    border: 1px solid black;
+    height: 600px;
+    width: 450px;
+    border-radius: 20px;
+    background-color: azure;
+}
+h1{
+    text-align: center;
+    color: rgb(8, 96, 67);
+    font-family: Arial, Helvetica, sans-serif;
+}
