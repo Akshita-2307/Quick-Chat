@@ -47,11 +47,13 @@ send.addEventListener("click",function(){
 function loadmessages(){
     let chatId=getChatId(currentuser,selecteduser);
     let allMessages=JSON.parse(localStorage.getItem("messages"))||{};
+    let chatMessages = allMessages[chatId] || [];
     let messagesDiv=document.getElementById("msg");
     messagesDiv.innerHTML="";
     chatMessages.forEach(function(msg){
         let p=document.createElement("p");
         p.textContent=msg.sender + ": " + msg.text;
+        p.classList.add(msg.sender === currentuser ? "sent" : "received" );
         messagesDiv.appendChild(p);
     });
 }
