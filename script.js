@@ -25,7 +25,7 @@ if(existinguser){
         username:username,
         password:password
     });
-    localStorage.setItem("user",JSON.stringify(users));
+    localStorage.setItem("user",JSON.stringify(user));
     localStorage.setItem("currentuser",username);
     window.location.href="chat.html";
 }
