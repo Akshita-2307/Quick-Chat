@@ -8,7 +8,7 @@ loginbtn.addEventListener("click", function () {
         alert("Username and Password can't be empty!");
         return;
     }
-});
+
 let user=JSON.parse(localStorage.getItem("user")) || [];
 let existinguser= user.find(function(user){
     return user.username===username;
@@ -16,7 +16,7 @@ let existinguser= user.find(function(user){
 if(existinguser){
     if(existinguser.password===password){
         localStorage.setItem("currentuser",username);
-        window.location.href="index.html";
+        window.location.href="chat.html";
     }else{
         alert("Incorrect Password");
     }
@@ -25,7 +25,8 @@ if(existinguser){
         username:username,
         password:password
     });
-    localStorage.setItem("users",JSON.stringify(users));
+    localStorage.setItem("user",JSON.stringify(users));
     localStorage.setItem("currentuser",username);
     window.location.href="chat.html";
 }
+});
