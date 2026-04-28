@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6,28 +6,33 @@ body{
     padding-bottom: 150px;
     background-color: rgb(200, 243, 244);
 }
-.login{
-    
+
+.login {
+
     height: 500px;
     width: 450px;
     border-radius: 20px;
     background-color: azure;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    ;
 }
-h1{
+
+h1 {
     text-align: center;
     color: rgb(8, 96, 67);
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 20px;
 }
-.description{
+
+.description {
     text-align: center;
     font-family: sans-serif;
     color: gray;
     padding-top: 5px;
     padding-bottom: 50px;
 }
-.username{
+
+.username {
     padding-left: 30px;
     padding-bottom: 15px;
     font-family: Arial, Helvetica, sans-serif;
@@ -36,31 +41,33 @@ h1{
     color: rgb(8, 96, 67);
     padding-top: 5px;
 }
-.input{
+
+.input {
     padding-left: 30px;
     border-radius: 2px;
     padding-bottom: 15px;
 }
+
 .input input {
-    height: 35px;          
-    width: 85%;            
-    border-radius: 10px;  
+    height: 35px;
+    width: 85%;
+    border-radius: 10px;
     border: 1px solid #ccc;
-    padding-left: 10px;    
+    padding-left: 10px;
     font-size: 16px;
 }
-.btn{
-    height: 35px;          
+
+.btn {
+    height: 35px;
     width: 85%;
     margin-left: 30px;
     margin-top: 15px;
-   text-align: center;
-   padding-top: 15px;
-   border-radius: 10px;
-   background-color: rgb(101, 238, 192);
-   font-size: 15px;
-   color: rgb(11, 58, 42);
-   font-family: sans-serif;
-   font-weight: bold;
-   
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 10px;
+    background-color: rgb(101, 238, 192);
+    font-size: 15px;
+    color: rgb(11, 58, 42);
+    font-family: sans-serif;
+    font-weight: bold;
 }
