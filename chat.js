@@ -26,8 +26,8 @@ send.addEventListener("click",function(){
         alert("Select a user first!");
         return;
     }
-    const input=document.getElementById("messageInput");
-    const messageText=input.ariaValueMax.trim();
+    const input=document.getElementById("msginput");
+    const messageText=input.value.trim();
     if(messageText==="") 
         return;
     let chatId=getChatId(currentuser,selecteduser);
@@ -44,3 +44,14 @@ send.addEventListener("click",function(){
         input.value="";
         loadmessages();
 });
+function loadmessages(){
+    let chatId=getChatId(currentuser,selecteduser);
+    let allMessages=JSON.parse(localStorage.getItem("messages"))||{};
+    let messagesDiv=document.getElementById("msg");
+    messagesDiv.innerHTML="";
+    chatMessages.forEach(function(msg){
+        let p=document.createElement("p");
+        p.textContent=msg.sender + ": " + msg.text;
+        messagesDiv.appendChild(p);
+    });
+}
