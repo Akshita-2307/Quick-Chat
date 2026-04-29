@@ -32,6 +32,6 @@ It allows user to create their profile,view others profile,send messages, delete
 - Online/Offline status.
 
 ## Waka time
-![Waka time](assets/images/wakatime.png)
+(assets/images/wakatime)
 
 
