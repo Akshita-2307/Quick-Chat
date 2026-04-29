@@ -15,7 +15,7 @@ user.forEach(function (user) {
         li.textContent = user.username;
         li.addEventListener("click", function () {
             selecteduser = user.username;
-            document.querySelector(".top").textContent = selecteduser;
+            document.getElementById("Select").textContent = selecteduser;
             loadmessages();
         });
         li.addEventListener("dblclick", function () {
