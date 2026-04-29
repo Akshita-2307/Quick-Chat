@@ -39,7 +39,7 @@ send.addEventListener("click", function () {
         allMessages[chatId] = [];
     }
     allMessages[chatId].push({
-        id:Date.now(),
+        id:String(Date.now()),
         sender: currentuser,
         text: messageText
     });
@@ -54,7 +54,7 @@ function loadmessages() {
     let hidden=JSON.parse(localStorage.getItem("hiddenMessages"))||{};
     let hiddenForUser=hidden[currentuser]||[];
     chatMessages=chatMessages.filter(function(msg){
-        return !hiddenForUser.includes(msg.id);
+        return !hiddenForUser.includes(String(msg.id));
     })
     let messagesDiv = document.getElementById("msg");
     messagesDiv.innerHTML = "";
@@ -101,7 +101,7 @@ function deleteforme(messageId){
     if(!hidden[currentuser]){
         hidden[currentuser]=[];
     }
-    hidden[currentuser].push(messageId);
+    hidden[currentuser].push(String(messageId));
     localStorage.setItem("hiddenmessages",JSON.stringify(hidden));
     loadmessages();
 }
