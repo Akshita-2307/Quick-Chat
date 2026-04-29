@@ -10,6 +10,28 @@ It allows user to create their profile,view others profile,send messages, delete
 - View profile of ourself and others.
 - Responsive design.
 - Local storage based data.
-  
+
+## Technology Used
+- HTML
+- CSS
+- Javascript
+
+## Working
+- User enter a username and password to create an account.
+- After log in they can:
+  1) Select another user from sidebar.
+  2) Send messages.
+  3) Delete messages.
+  4) View profile.
+- All data is stored locally using LocalStorage.
+
+## Future Improvements
+- Real-time global chat using firebase.
+- Profile picture support.
+- Message timestamp.
+- Online/Offline status.
+
+## Waka time
+![Waka Time](https://github.com/Akshita-2307/Quick-Chat/blob/main/assets/Images/waka%20time.png)
 
 
