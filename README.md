@@ -32,6 +32,6 @@ It allows user to create their profile,view others profile,send messages, delete
 - Online/Offline status.
 
 ## Waka time
-![Waka Time](assets/images/wakatime.png)
+![Waka Time](https://github.com/Akshita-2307/Quick-Chat/blob/main/assets/Images/waka%20time.png)
 
 
