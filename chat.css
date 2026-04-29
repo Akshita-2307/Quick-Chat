@@ -31,17 +31,19 @@ h2{
     padding: 20px;
     overflow-y:auto ;
     background-color: rgb(255, 245, 233);
+    display: flex;
+    flex-direction: column;
 }
 .sent{
     align-self: flex-end;
     padding: 10px 15px;
     border-radius: 15px;
     max-width: 40%;
-    background-color: rgb(159, 237, 159);
+    background-color: rgb(80, 236, 80);
 }
 .received{
     align-self: flex-start;
-    background-color: lightgreen;
+    background-color: rgb(215, 245, 215);
     padding: 10px 15px;
     border-radius: 15px;
     max-width: 40%;
@@ -54,7 +56,7 @@ h2{
     flex: 1;
     padding: 10px;
 }
-.msgarea send{
+.msgarea button{
     padding: 10px 20px;
 }
 #send{
