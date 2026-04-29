@@ -11,49 +11,91 @@ user.forEach(function (user) {
             document.querySelector(".top").textContent = selecteduser;
             loadmessages();
         });
-
-
         userlist.appendChild(li);
     }
-
 });
-function getChatId(user1,user2){
-    return[user1,user2].sort().join("_");
+function getChatId(user1, user2) {
+    return [user1, user2].sort().join("_");
 }
-const send=document.getElementById("send");
-send.addEventListener("click",function(){
-    if(!selecteduser){
+const send = document.getElementById("send");
+send.addEventListener("click", function () {
+    if (!selecteduser) {
         alert("Select a user first!");
         return;
     }
-    const input=document.getElementById("msginput");
-    const messageText=input.value.trim();
-    if(messageText==="") 
+    const input = document.getElementById("msginput");
+    const messageText = input.value.trim();
+    if (messageText === "")
         return;
-    let chatId=getChatId(currentuser,selecteduser);
-    let allMessages=JSON.parse(localStorage.getItem("messages"))||{};
-     if(!allMessages[chatId]){
-        allMessages[chatId]=[];
-     }
-     allMessages[chatId].push({
-        sender:currentuser,
-        text:messageText
-     });
-     localStorage.setItem("messages",
-        JSON.stringify(allMessages));
-        input.value="";
-        loadmessages();
-});
-function loadmessages(){
-    let chatId=getChatId(currentuser,selecteduser);
-    let allMessages=JSON.parse(localStorage.getItem("messages"))||{};
-    let chatMessages = allMessages[chatId] || [];
-    let messagesDiv=document.getElementById("msg");
-    messagesDiv.innerHTML="";
-    chatMessages.forEach(function(msg){
-        let p=document.createElement("p");
-        p.textContent=msg.sender + ": " + msg.text;
-        p.classList.add(msg.sender === currentuser ? "sent" : "received" );
-        messagesDiv.appendChild(p);
+    let chatId = getChatId(currentuser, selecteduser);
+    let allMessages = JSON.parse(localStorage.getItem("messages")) || {};
+    if (!allMessages[chatId]) {
+        allMessages[chatId] = [];
+    }
+    allMessages[chatId].push({
+        id:Date.now(),
+        sender: currentuser,
+        text: messageText
     });
+    localStorage.setItem("messages",JSON.stringify(allMessages));
+    input.value = "";
+    loadmessages();
+});
+function loadmessages() {
+    let chatId = getChatId(currentuser, selecteduser);
+    let allMessages = JSON.parse(localStorage.getItem("messages")) || {};
+    let chatMessages = allMessages[chatId] || [];
+    let hidden=JSON.parse(localStorage.getItem("hiddenMessages"))||{};
+    let hiddenForUser=hidden[currentuser]||[];
+    chatMessages=chatMessages.filter(function(msg){
+        return !hiddenForUser.includes(msg.id);
+    })
+    let messagesDiv = document.getElementById("msg");
+    messagesDiv.innerHTML = "";
+    chatMessages.forEach(function(msg){
+        let container=document.createElement("div");
+        container.classList.add(
+            msg.sender===currentuser? "sent" : "received"
+        );
+        let text=document.createElement("span");
+        text.textContent=msg.sender + ": " + msg.text;
+        let deletemebtn=document.createElement("button");
+        deletemebtn.textContent="Delete for me";
+        deletemebtn.addEventListener("click",function(){
+            deleteforme(msg.id);
+        });
+        let deleteallbtn=document.createElement("button");
+        deleteallbtn.textContent="Delete for everyone";
+        deleteallbtn.addEventListener("click",function(){
+            deleteforeveryone(msg.id);
+        });
+
+        container.appendChild(text);
+        container.appendChild(deletemebtn);
+        container.appendChild(deleteallbtn);
+        messagesDiv.appendChild(container);
+    });
+}
+function deleteforeveryone(messageId){
+    let chatId=getChatId(currentuser,selecteduser);
+    let allMessages=JSON.parse(localStorage.getItem("messages"))||{};
+    let chatMessages=allMessages[chatId]||[];
+    chatMessages=chatMessages.filter(function(msg){
+        return msg.Id!==messageId;
+    });
+    allMessages[chatId]=chatMessages;
+    localStorage.setItem(
+        "messages",
+        JSON.stringify(allMessages)
+    );
+    loadmessages();
+}
+function deleteforme(messageId){
+    let hidden=JSON.parse(localStorage.getItem("hiddenmessages"))||{};
+    if(hidden[currentuser]){
+        hidden[currentuser]=[];
+    }
+    hidden[currentuser].push(messageId);
+    localStorage.setItem("hiddenmessages",JSON.stringify(hidden));
+    loadmessages();
 }
