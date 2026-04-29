@@ -25,6 +25,12 @@ h2{
     font-family: sans-serif;
     color: rgb(8, 96, 67);
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+#profilevisit{
+    background-color: rgb(101, 238, 192);
+    border-radius: 5px;
 }
 #msg{
     flex: 1;

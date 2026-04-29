@@ -1,6 +1,9 @@
 let user = JSON.parse(localStorage.getItem("user")) || [];
 let currentuser = localStorage.getItem("currentuser");
 const userlist = document.getElementById("userlist");
+document.getElementById("profilevisit").addEventListener("click",function(){
+    window.location.href="profile.html";
+});
 let selecteduser = null;
 user.forEach(function (user) {
     if (user.username !== currentuser) {
@@ -10,6 +13,9 @@ user.forEach(function (user) {
             selecteduser = user.username;
             document.querySelector(".top").textContent = selecteduser;
             loadmessages();
+        });
+        li.addEventListener("dblclick",function(){
+            window.location.href="profile.html?user=" + user.username;
         });
         userlist.appendChild(li);
     }
@@ -81,7 +87,7 @@ function deleteforeveryone(messageId){
     let allMessages=JSON.parse(localStorage.getItem("messages"))||{};
     let chatMessages=allMessages[chatId]||[];
     chatMessages=chatMessages.filter(function(msg){
-        return msg.Id!==messageId;
+        return msg.id!==messageId;
     });
     allMessages[chatId]=chatMessages;
     localStorage.setItem(
@@ -91,8 +97,8 @@ function deleteforeveryone(messageId){
     loadmessages();
 }
 function deleteforme(messageId){
-    let hidden=JSON.parse(localStorage.getItem("hiddenmessages"))||{};
-    if(hidden[currentuser]){
+    let hidden=JSON.parse(localStorage.getItem("hiddenMessages"))||{};
+    if(!hidden[currentuser]){
         hidden[currentuser]=[];
     }
     hidden[currentuser].push(messageId);
