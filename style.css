@@ -71,3 +71,13 @@ h1 {
     font-family: sans-serif;
     font-weight: bold;
 }
+@media(max-width:500px){
+    body{
+        padding-top:40px ;
+        padding-bottom: 40px;
+    }
+    .login{
+        width: 90%;
+        height: auto;
+    }
+}
