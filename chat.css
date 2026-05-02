@@ -84,7 +84,7 @@ h2{
     }
 }
 @media(max-width:768px) {
-    .conatiner{
+    .container{
         flex-direction: column;
     }
     .side{
