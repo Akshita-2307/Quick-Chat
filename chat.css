@@ -46,7 +46,6 @@ h2{
     align-self: flex-end;
     padding: 10px 15px;
     border-radius: 15px;
-    max-width: 40%;
     background-color: rgb(80, 236, 80);
 }
 .received{
@@ -54,7 +53,6 @@ h2{
     background-color: rgb(215, 245, 215);
     padding: 10px 15px;
     border-radius: 15px;
-    max-width: 40%;
 }
 .sent,
 .received{
