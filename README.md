@@ -31,7 +31,6 @@ It allows user to create their profile,view others profile,send messages, delete
 - Message timestamp.
 - Online/Offline status.
 
-## Waka time
-![Waka Time](https://wakatime.com/dashboard)
+
 
 
